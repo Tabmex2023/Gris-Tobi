@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Griselda & Tobias</title>
+    <meta charset="UTF-8">
+    <title>Griselda & Tobias</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
-
-<script>
-if(localStorage.getItem("lang")){
-  window.location.href = localStorage.getItem("lang") + ".html";
-}
-</script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="lang-page">
+<body class="language-select">
 
-<div class="lang-box">
+    <div class="overlay"></div>
 
-<img src="https://flagcdn.com/w320/mx.png" class="flag">
+    <div class="language-box">
+        <h1>Griselda & Tobias</h1>
 
-<h2>Bitte Sprache auswählen</h2>
-<p>Por favor seleccione su idioma</p>
+        <p class="subtitle">
+            Bitte wähle deine Sprache
+        </p>
 
-<div class="lang-buttons">
-  <button onclick="setLang('de')">Deutsch</button>
-  <button onclick="setLang('es')">Español</button>
-</div>
+        <div class="flags">
 
-</div>
+            <a href="es.html" class="flag">
+                🇲🇽
+                <span>Español</span>
+            </a>
 
-<script>
-function setLang(lang){
-  localStorage.setItem("lang", lang);
-  window.location.href = lang + ".html";
-}
-</script>
+            <a href="de.html" class="flag">
+                🇩🇪
+                <span>Deutsch</span>
+            </a>
+
+        </div>
+    </div>
 
 </body>
 </html>
