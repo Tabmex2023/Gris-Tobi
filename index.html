@@ -3,100 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Griselda & Tobias</title>
 
-<title>Griselda & Tobias – Hochzeit</title>
-
-<link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-
 <script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js");
+if(localStorage.getItem("lang")){
+  window.location.href = localStorage.getItem("lang") + ".html";
 }
 </script>
 </head>
 
-<body>
+<body class="lang-page">
 
-<header class="hero">
-  <div class="overlay">
+<div class="lang-box">
 
-    <div class="language">
-      <a href="#" onclick="setLang('de')">🇩🇪 Deutsch</a> |
-      <a href="#" onclick="setLang('es')">🇪🇸 Español</a>
-    </div>
+<img src="https://flagcdn.com/w320/mx.png" class="flag">
 
-    <h1>Griselda & Tobias</h1>
+<h2>Bitte Sprache auswählen</h2>
+<p>Por favor seleccione su idioma</p>
 
-    <p class="intro" id="intro-text">
-      Unsere Hochzeit
-    </p>
+<div class="lang-buttons">
+  <button onclick="setLang('de')">Deutsch</button>
+  <button onclick="setLang('es')">Español</button>
+</div>
 
-    <div class="date">
-      21 · 11 · 2026<br>
-      Guamúchil, Sinaloa
-    </div>
-
-    <div id="countdown"></div>
-
-    <div class="menu">
-      <a href="#info" id="menu-info">Informationen</a>
-      <a href="#reise" id="menu-reise">Reise</a>
-      <a href="#hotel" id="menu-hotel">Hotels</a>
-      <a href="#fotos" id="menu-fotos" style="display:none;">Fotos</a>
-    </div>
-
-  </div>
-</header>
-
-<section id="fotos" class="section" style="display:none;">
-  <h2>📸 Fotos & Videos</h2>
-  <p>
-    Hier könnt ihr eure Fotos hochladen und alle Bilder ansehen.
-  </p>
-
-  <!-- HIER SPÄTER DEIN GOOGLE-FOTOS-LINK -->
-  <a class="button" href="#" target="_blank">
-    Fotos hochladen & ansehen
-  </a>
-</section>
+</div>
 
 <script>
-const weddingDate = new Date("2026-11-21T00:00:00-07:00");
-const today = new Date();
-
-// Countdown
-setInterval(() => {
-  const now = new Date();
-  const diff = weddingDate - now;
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  document.getElementById("countdown").innerHTML =
-    "Noch <strong>" + days + "</strong> Tage";
-}, 1000);
-
-// Fotos erst am Hochzeitstag
-if (today >= weddingDate) {
-  document.getElementById("menu-fotos").style.display = "block";
-  document.getElementById("fotos").style.display = "block";
-}
-
-// Sprache
-function setLang(lang) {
-  if (lang === "es") {
-    document.getElementById("intro-text").innerText = "Nuestra boda";
-    document.getElementById("menu-info").innerText = "Información";
-    document.getElementById("menu-reise").innerText = "Viaje";
-    document.getElementById("menu-hotel").innerText = "Hoteles";
-    document.getElementById("menu-fotos").innerText = "Fotos";
-  } else {
-    document.getElementById("intro-text").innerText = "Unsere Hochzeit";
-    document.getElementById("menu-info").innerText = "Informationen";
-    document.getElementById("menu-reise").innerText = "Reise";
-    document.getElementById("menu-hotel").innerText = "Hotels";
-    document.getElementById("menu-fotos").innerText = "Fotos";
-  }
+function setLang(lang){
+  localStorage.setItem("lang", lang);
+  window.location.href = lang + ".html";
 }
 </script>
 
