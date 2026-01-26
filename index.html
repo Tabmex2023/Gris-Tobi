@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <!-- PWA / APP -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Griselda & Tobias">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Griselda & Tobias – Hochzeit</title>
 
 <style>
+  .countdown-wrapper {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.countdown-title {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.countdown {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.countdown div {
+  background: rgba(255,255,255,0.85);
+  padding: 15px 18px;
+  border-radius: 14px;
+  min-width: 75px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.countdown span {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.countdown small {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
 :root {
   --wine: #7a1e2c;
   --sand: #f4efe9;
@@ -179,6 +222,18 @@ h1 {
   <h1 class="reveal">Griselda & Tobias</h1>
   <div class="date reveal" style="transition-delay:0.2s;">21 · 11 · 2026</div>
   <div class="place reveal" style="transition-delay:0.4s;">Guamúchil, Sinaloa</div>
+  <div class="countdown-wrapper">
+  <div class="countdown-title">
+    Countdown bis zur Feier
+  </div>
+
+  <div id="countdown" class="countdown">
+    <div><span id="days">0</span><small>Tage</small></div>
+    <div><span id="hours">0</span><small>Stunden</small></div>
+    <div><span id="minutes">0</span><small>Minuten</small></div>
+    <div><span id="seconds">0</span><small>Sekunden</small></div>
+  </div>
+</div>
 
   <div class="languages">
 
@@ -212,6 +267,46 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll(".reveal, .from-left, .from-right")
   .forEach(el => observer.observe(el));
 </script>
+<script>
+const weddingDate = new Date(
+  new Date().toLocaleString("en-US", {
+    timeZone: "America/Mazatlan"
+  }).replace(/$/, "")
+);
 
+weddingDate.setFullYear(2026);
+weddingDate.setMonth(10); // November = 10
+weddingDate.setDate(21);
+weddingDate.setHours(18, 0, 0, 0);
+
+function updateCountdown() {
+  const now = new Date(
+    new Date().toLocaleString("en-US", {
+      timeZone: "America/Mazatlan"
+    })
+  );
+
+  const diff = weddingDate - now;
+
+  if (diff <= 0) {
+    document.getElementById("countdown").innerHTML =
+      "<strong>Heute ist unser großer Tag ❤️</strong>";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / 1000 / 60) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
 </body>
 </html>
