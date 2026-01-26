@@ -1,28 +1,277 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Griselda & Tobias – Boda</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="stylesheet" href="style.css">
+<title>Griselda & Tobias · Boda</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-512.png">
+<meta name="theme-color" content="#7a1e2c">
+
+<style>
+:root {
+  --wine: #7a1e2c;
+  --sand: #f4efe9;
+  --font: "Georgia", "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--sand);
+  color: var(--wine);
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background:
+    linear-gradient(rgba(244,239,233,0.82), rgba(244,239,233,0.82)),
+    url("hero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  padding: 40px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+.hero .date {
+  margin-top: 12px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.hero .place {
+  margin-top: 6px;
+  font-size: 1rem;
+}
+
+/* ---------- SECTIONS ---------- */
+
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 80px 25px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 1.7rem;
+  margin-bottom: 25px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.section-box {
+  border-top: 1px solid rgba(122,30,44,0.3);
+  padding-top: 35px;
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+/* ---------- COUNTDOWN ---------- */
+
+#countdown {
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  margin-top: 25px;
+}
+
+/* ---------- BUTTONS ---------- */
+
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 28px;
+  border: 1px solid var(--wine);
+  color: var(--wine);
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: var(--wine);
+  color: #fff;
+}
+
+/* ---------- GALLERY ---------- */
+
+iframe {
+  width: 100%;
+  height: 380px;
+  border: none;
+  margin-top: 30px;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+  padding: 60px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 700px) {
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+
+  section {
+    padding: 65px 20px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header class="hero">
-  <div class="overlay">
-
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
     <h1>Griselda & Tobias</h1>
-    <p class="intro">Con mucha alegría les damos la bienvenida a nuestra boda</p>
-
-    <div class="date">
-      21.11.2026<br>
-      Guamúchil, Sinaloa
-    </div>
-
+    <div class="date">21 · 11 · 2026</div>
+    <div class="place">Guamúchil, Sinaloa</div>
+    <div id="countdown"></div>
   </div>
-</header>
+</div>
+
+<!-- MENSAJE -->
+<section>
+  <h2>Con mucha alegría</h2>
+  <div class="section-box">
+    Nos llena de felicidad compartir este día tan especial con ustedes.
+    Gracias por acompañarnos en uno de los momentos más importantes de
+    nuestras vidas.
+  </div>
+</section>
+
+<!-- FECHA -->
+<section>
+  <h2>Fecha y hora</h2>
+  <div class="section-box">
+    Sábado, 21 de noviembre de 2026<br>
+    Ceremonia: 18:00 h
+  </div>
+</section>
+
+<!-- LUGAR -->
+<section>
+  <h2>Lugar</h2>
+  <div class="section-box">
+    Guamúchil, Sinaloa
+    <br>
+    <a class="btn" target="_blank"
+       href="https://maps.google.com">
+       Ver en Google Maps
+    </a>
+  </div>
+</section>
+
+<!-- VESTIMENTA -->
+<section>
+  <h2>Código de vestimenta</h2>
+  <div class="section-box">
+    Elegante – Formal<br>
+    Se agradece no vestir de blanco.
+  </div>
+</section>
+
+<!-- REGALOS -->
+<section>
+  <h2>Regalos</h2>
+  <div class="section-box">
+    Su presencia es nuestro mejor regalo.<br>
+    En caso de desear obsequiarnos algo,<br>
+    agradeceremos lluvia de sobres.
+  </div>
+</section>
+
+<!-- PROGRAMA -->
+<section>
+  <h2>Programa</h2>
+  <div class="section-box">
+    18:00 · Ceremonia<br>
+    19:00 · Fotografías<br>
+    20:00 · Cena<br>
+    21:30 · Celebración
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="gallery-section">
+  <h2>Fotos de la boda</h2>
+
+  <div class="section-box">
+    Aquí podrán ver y compartir los recuerdos de nuestra boda.
+  </div>
+
+  <!-- PREVIEW -->
+  <iframe
+    src="https://drive.google.com/embeddedfolderview?id=ORDNER_ID#grid">
+  </iframe>
+
+  <a class="btn" target="_blank"
+     href="https://drive.google.com/drive/folders/ORDNER_ID">
+     Ver todas las fotos
+  </a>
+
+  <a class="btn" target="_blank"
+     href="https://forms.gle/FORMULAR_ID">
+     Subir fotos
+  </a>
+</section>
+
+<footer>
+  Griselda & Tobias · 2026
+</footer>
+
+<script>
+const weddingDate = new Date("2026-11-21T18:00:00-07:00");
+const countdown = document.getElementById("countdown");
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = weddingDate - now;
+
+  if (diff <= 0) {
+    countdown.innerHTML = "Hoy celebramos nuestro amor";
+    return;
+  }
+
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const m = Math.floor((diff / (1000 * 60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  countdown.innerHTML =
+    `Faltan ${d} días · ${h}h ${m}m ${s}s`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
 
 </body>
 </html>
