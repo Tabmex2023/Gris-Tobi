@@ -3,26 +3,269 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Griselda & Tobias – Hochzeit</title>
 
-<link rel="stylesheet" href="style.css">
+<title>Griselda & Tobias · Hochzeit</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-512.png">
+<meta name="theme-color" content="#7a1e2c">
+
+<style>
+:root {
+  --wine: #7a1e2c;
+  --sand: #f4efe9;
+  --font: "Georgia", "Times New Roman", serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--sand);
+  color: var(--wine);
+  font-family: var(--font);
+}
+
+/* HERO */
+
+.hero {
+  height: 100vh;
+  background:
+    linear-gradient(rgba(244,239,233,0.82), rgba(244,239,233,0.82)),
+    url("hero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  font-weight: normal;
+}
+
+.hero .meta {
+  margin-top: 12px;
+  letter-spacing: 2px;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: sticky;
+  top: 0;
+  background: var(--sand);
+  border-bottom: 1px solid rgba(122,30,44,.25);
+  z-index: 20;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+nav li {
+  margin: 12px 18px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--wine);
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+}
+
+/* SECTIONS */
+
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 90px 25px;
+  text-align: center;
+}
+
+section h2 {
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  font-weight: normal;
+}
+
+.section-box {
+  border-top: 1px solid rgba(122,30,44,.3);
+  padding-top: 35px;
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+/* BUTTON */
+
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 28px;
+  border: 1px solid var(--wine);
+  color: var(--wine);
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: var(--wine);
+  color: #fff;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 60px 20px;
+  text-align: center;
+  font-size: .9rem;
+  opacity: .8;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+  .hero h1 {font-size:2.2rem;}
+}
+</style>
 </head>
 
 <body>
 
-<header class="hero">
-  <div class="overlay">
-
+<!-- HERO -->
+<div class="hero">
+  <div>
     <h1>Griselda & Tobias</h1>
-    <p class="intro">Mit großer Freude heißen wir euch zu unserer Hochzeit willkommen</p>
-
-    <div class="date">
-      21.11.2026<br>
-      Guamúchil, Sinaloa
-    </div>
-
+    <div class="meta">21 · 11 · 2026</div>
+    <div class="meta">Guamúchil, Sinaloa</div>
+    <div id="countdown"></div>
   </div>
-</header>
+</div>
+
+<!-- NAV -->
+<nav>
+<ul>
+  <li><a href="#ueberblick">Überblick</a></li>
+  <li><a href="#ablauf">Ablauf</a></li>
+  <li><a href="#anreise">Anreise</a></li>
+  <li><a href="#hotels">Hotels</a></li>
+  <li><a href="#fotos">Fotos</a></li>
+  <li><a href="#kontakt">Kontakt</a></li>
+</ul>
+</nav>
+
+<!-- ÜBERBLICK -->
+<section id="ueberblick">
+<h2>Herzlich willkommen</h2>
+<div class="section-box">
+Mit großer Freude laden wir euch ein, diesen besonderen Tag mit uns zu feiern.
+Diese Seite soll euch helfen, eure Reise nach Mexiko entspannt zu planen.
+</div>
+</section>
+
+<!-- ABLAUF -->
+<section id="ablauf">
+<h2>Ablauf</h2>
+<div class="section-box">
+21. November 2026<br><br>
+18:00 Uhr – Trauung<br>
+19:00 Uhr – Fotos<br>
+20:00 Uhr – Abendessen<br>
+ab 21:30 Uhr – Feier
+</div>
+</section>
+
+<!-- ANREISE -->
+<section id="anreise">
+<h2>Anreise</h2>
+<div class="section-box">
+Empfohlener Zielflughafen:<br>
+Culiacán (CUL)<br><br>
+
+Von dort ca. 1 Stunde Fahrt nach Guamúchil.<br><br>
+
+<a class="btn" target="_blank"
+href="https://maps.google.com">
+Route auf Google Maps ansehen
+</a>
+</div>
+</section>
+
+<!-- HOTELS -->
+<section id="hotels">
+<h2>Hotels</h2>
+<div class="section-box">
+Wir empfehlen folgende Hotels in Guamúchil oder Umgebung:<br><br>
+
+• Hotel Davimar<br>
+• Hotel York<br>
+• Hotel San Marcos<br><br>
+
+Alternativ sind auch Airbnb-Unterkünfte verfügbar.
+</div>
+</section>
+
+<!-- FOTOS -->
+<section id="fotos">
+<h2>Hochzeitsfotos</h2>
+<div class="section-box">
+Alle Fotos der Hochzeit werden hier gesammelt.
+</div>
+
+<iframe
+src="https://drive.google.com/embeddedfolderview?id=ORDNER_ID#grid"
+style="width:100%; height:380px; border:none;">
+</iframe>
+
+<a class="btn" target="_blank"
+href="https://drive.google.com/drive/folders/ORDNER_ID">
+Alle Fotos ansehen
+</a>
+
+<a class="btn" target="_blank"
+href="https://forms.gle/FORMULAR_ID">
+Fotos hochladen
+</a>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+<h2>Kontakt</h2>
+<div class="section-box">
+Bei Fragen könnt ihr euch jederzeit melden:<br><br>
+
+Tobias · WhatsApp<br>
+Griselda · WhatsApp
+</div>
+</section>
+
+<footer>
+Griselda & Tobias · 2026
+</footer>
+
+<script>
+const weddingDate = new Date("2026-11-21T18:00:00-07:00");
+const cd = document.getElementById("countdown");
+
+function tick(){
+ const n=new Date(),d=weddingDate-n;
+ if(d<=0){cd.innerHTML="Heute ist unser großer Tag";return;}
+ const days=Math.floor(d/86400000);
+ const h=Math.floor(d/3600000)%24;
+ const m=Math.floor(d/60000)%60;
+ const s=Math.floor(d/1000)%60;
+ cd.innerHTML=`Noch ${days} Tage · ${h}h ${m}m ${s}s`;
+}
+setInterval(tick,1000); tick();
+</script>
 
 </body>
 </html>
